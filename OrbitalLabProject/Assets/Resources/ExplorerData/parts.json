@@ -1,0 +1,1769 @@
+{
+ "subsystems": [
+  {
+   "id": "structure",
+   "name": "Structure",
+   "color": "#8DA0B3",
+   "blurb": "The skeleton: carries every load and holds everything in place."
+  },
+  {
+   "id": "propellant",
+   "name": "Propellant storage & feed",
+   "color": "#E69F00",
+   "blurb": "Tanks, pipes and gas bottles that store the propellant and deliver it to the engines."
+  },
+  {
+   "id": "propulsion",
+   "name": "Propulsion",
+   "color": "#D55E00",
+   "blurb": "Engines that turn stored propellant into thrust. Concept models only."
+  },
+  {
+   "id": "avionics",
+   "name": "Avionics & control",
+   "color": "#56B4E9",
+   "blurb": "The electronic brain: sensors, computer and telemetry."
+  },
+  {
+   "id": "electrical",
+   "name": "Electrical power & wiring",
+   "color": "#F0E442",
+   "blurb": "Batteries, power distribution and wiring that keep the electronics alive."
+  },
+  {
+   "id": "aerodynamic",
+   "name": "Aerodynamic & control surfaces",
+   "color": "#CC79A7",
+   "blurb": "Shapes and surfaces that manage airflow and steering."
+  },
+  {
+   "id": "separation",
+   "name": "Staging & separation",
+   "color": "#0072B2",
+   "blurb": "Mechanisms that let stages and covers separate at the right moment (concept only)."
+  },
+  {
+   "id": "thermal",
+   "name": "Thermal protection",
+   "color": "#F4A582",
+   "blurb": "Shields that protect parts from heat."
+  },
+  {
+   "id": "payload",
+   "name": "Payload",
+   "color": "#009E73",
+   "blurb": "The reason the rocket exists: the satellite and what holds it."
+  },
+  {
+   "id": "recovery",
+   "name": "Recovery",
+   "color": "#7FBF7B",
+   "blurb": "Hardware that lets a stage land and be reused."
+  }
+ ],
+ "assemblies": [
+  {
+   "id": "Assembly_Stage1",
+   "name": "Stage 1 (first stage / booster)"
+  },
+  {
+   "id": "Assembly_Interstage",
+   "name": "Interstage"
+  },
+  {
+   "id": "Assembly_Stage2",
+   "name": "Stage 2 (upper stage)"
+  },
+  {
+   "id": "Assembly_AvionicsBay",
+   "name": "Avionics bay"
+  },
+  {
+   "id": "Assembly_PayloadSection",
+   "name": "Payload section"
+  }
+ ],
+ "parts": [
+  {
+   "id": "S1_Skin",
+   "name": "Stage 1 outer skin",
+   "subsystem": "structure",
+   "assembly": "Assembly_Stage1",
+   "summary": "The smooth outer wall of the first stage.",
+   "what": "A thin cylindrical shell wrapped around the tanks and engine section, with panel seams.",
+   "why": "It gives the rocket a smooth surface for the air to flow over and protects what is inside. On many real rockets the tank walls themselves carry the loads; this model shows the skin separately so you can see inside.",
+   "how": "Air rushes over it at high speed during ascent. A smooth shape keeps drag low. Panels are joined at seams.",
+   "facts": [
+    "Hide this part to see the tanks and engine inside.",
+    "Real rockets often combine skin and tank wall into one structure to save weight."
+   ],
+   "interfaces": [
+    {
+     "type": "Mechanical",
+     "text": "Attaches to the forward skirt, intertank and engine section rings."
+    }
+   ],
+   "connects": [
+    "S1_ForwardSkirt",
+    "S1_Intertank",
+    "IS_InterstageShell"
+   ],
+   "quiz": {
+    "question": "Why is the skin shown as a separate part here?",
+    "options": [
+     "Real rockets have no tanks inside",
+     "So you can see the parts inside it",
+     "It is the engine"
+    ],
+    "answer": 1,
+    "explanation": "This is a teaching model: separating the skin lets you inspect the internals."
+   },
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S1_FuelTank",
+   "name": "Stage 1 fuel tank",
+   "subsystem": "propellant",
+   "assembly": "Assembly_Stage1",
+   "summary": "Stores the fuel for the first-stage engines.",
+   "what": "A large thin-walled metal tank with domed ends and internal rings called baffles.",
+   "why": "The engines need a steady supply of fuel. Most of a rocket's launch mass is propellant, so the tanks are the biggest parts of the vehicle.",
+   "how": "Fuel flows out of the bottom of the tank into feed lines. The tank is pressurised with gas so it keeps its shape and fuel keeps flowing as it empties. Baffles stop the liquid sloshing, which could upset the rocket's steering.",
+   "facts": [
+    "Domed ends handle pressure better than flat ends.",
+    "Tanks are often the main load-bearing structure."
+   ],
+   "interfaces": [
+    {
+     "type": "Fluid",
+     "text": "Outlet to the fuel feed line."
+    },
+    {
+     "type": "Fluid",
+     "text": "Pressurant gas inlet from the pressurant bottles."
+    },
+    {
+     "type": "Mechanical",
+     "text": "Joins the thrust structure below and intertank above."
+    }
+   ],
+   "connects": [
+    "S1_FuelFeedLine",
+    "S1_PressurantBottles",
+    "S1_Intertank",
+    "S1_ThrustStructure"
+   ],
+   "quiz": {
+    "question": "What do the rings inside the tank (baffles) do?",
+    "options": [
+     "Heat the fuel",
+     "Reduce sloshing",
+     "Measure speed"
+    ],
+    "answer": 1,
+    "explanation": "Baffles damp sloshing so moving liquid does not disturb steering."
+   },
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S1_OxidizerTank",
+   "name": "Stage 1 oxidizer tank",
+   "subsystem": "propellant",
+   "assembly": "Assembly_Stage1",
+   "summary": "Stores the oxidizer: the substance that lets the fuel burn.",
+   "what": "A large tank above the fuel tank, built like the fuel tank.",
+   "why": "Fuel needs oxygen to burn. There is no air in space, so a rocket carries its own oxidizer.",
+   "how": "Oxidizer flows down a feed line to the engines. Some oxidizers must be kept very cold, so the tank is insulated.",
+   "facts": [
+    "A rocket carries both fuel and oxidizer, unlike a jet engine which uses outside air."
+   ],
+   "interfaces": [
+    {
+     "type": "Fluid",
+     "text": "Outlet to the oxidizer feed line."
+    },
+    {
+     "type": "Mechanical",
+     "text": "Joins the intertank below and forward skirt above."
+    }
+   ],
+   "connects": [
+    "S1_OxidizerFeedLine",
+    "S1_Intertank",
+    "S1_ForwardSkirt"
+   ],
+   "quiz": {
+    "question": "Why does a rocket carry an oxidizer?",
+    "options": [
+     "There is no air in space",
+     "To make it heavier",
+     "To cool the engine"
+    ],
+    "answer": 0,
+    "explanation": "Burning needs oxygen; in space there is none, so it must be carried."
+   },
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S1_Intertank",
+   "name": "Stage 1 intertank",
+   "subsystem": "structure",
+   "assembly": "Assembly_Stage1",
+   "summary": "The strong ring section between the two tanks.",
+   "what": "A short cylinder with vertical stiffeners that joins the fuel tank and oxidizer tank.",
+   "why": "It connects the tanks and carries the loads between them. Plumbing and wiring often pass through it.",
+   "how": "Loads from the stack above travel down through the stiffeners to the lower structure.",
+   "facts": [
+    "Structural parts like this are designed to be strong yet light."
+   ],
+   "interfaces": [
+    {
+     "type": "Mechanical",
+     "text": "Rings at both ends bolt to the tanks."
+    }
+   ],
+   "connects": [
+    "S1_FuelTank",
+    "S1_OxidizerTank",
+    "S1_OxidizerFeedLine"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S1_ForwardSkirt",
+   "name": "Stage 1 forward skirt",
+   "subsystem": "structure",
+   "assembly": "Assembly_Stage1",
+   "summary": "The top ring of the first stage.",
+   "what": "A short structural ring at the top of the oxidizer tank.",
+   "why": "It is where the first stage connects to the interstage, so loads and separation hardware attach here.",
+   "how": "It spreads concentrated loads from the interstage into the tank structure.",
+   "facts": [
+    "Interfaces between stages are carefully designed because they must stay strong yet release on command."
+   ],
+   "interfaces": [
+    {
+     "type": "Mechanical",
+     "text": "Connects to the interstage separation ring."
+    }
+   ],
+   "connects": [
+    "IS_InterstageShell",
+    "S1_OxidizerTank",
+    "SEP_Ring_Pushers"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S1_ThrustStructure",
+   "name": "Stage 1 thrust structure",
+   "subsystem": "structure",
+   "assembly": "Assembly_Stage1",
+   "summary": "Passes the engines' push into the rocket.",
+   "what": "A strong plate with radial beams and nine engine mounts at the bottom of the tank section.",
+   "why": "The engines produce enormous force. This structure spreads that force over the whole tank structure instead of one small spot.",
+   "how": "Each engine bolts to a mount; beams carry the load into the cylindrical walls.",
+   "facts": [
+    "Without a thrust structure the engines would tear through the tank bottom."
+   ],
+   "interfaces": [
+    {
+     "type": "Mechanical",
+     "text": "Engine mounts and tank base ring."
+    },
+    {
+     "type": "Fluid",
+     "text": "Feed lines pass through to the engines."
+    }
+   ],
+   "connects": [
+    "S1_Engine_1",
+    "S1E_GimbalMount",
+    "S1_FuelTank"
+   ],
+   "quiz": {
+    "question": "What is the job of the thrust structure?",
+    "options": [
+     "Store propellant",
+     "Spread engine force into the rocket",
+     "Steer with fins"
+    ],
+    "answer": 1,
+    "explanation": "It turns concentrated engine force into a load the whole structure can carry."
+   },
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S1_BaseHeatShield",
+   "name": "Base heat shield",
+   "subsystem": "thermal",
+   "assembly": "Assembly_Stage1",
+   "summary": "Protects the base of the rocket from engine heat.",
+   "what": "An insulated plate across the bottom, with openings for the engine nozzles.",
+   "why": "Hot exhaust gas can curl back and heat the engine section. The shield keeps heat out of the structure and plumbing.",
+   "how": "Insulating material resists heat flowing into the parts behind it.",
+   "facts": [
+    "Thermal protection is a subsystem in its own right in rocket design."
+   ],
+   "interfaces": [
+    {
+     "type": "Mechanical",
+     "text": "Mounts to the thrust structure and skirt."
+    }
+   ],
+   "connects": [
+    "S1_ThrustStructure"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S1E_Injector",
+   "name": "Engine injector (concept)",
+   "subsystem": "propulsion",
+   "assembly": "Assembly_Stage1",
+   "summary": "Feeds and mixes fuel and oxidizer at the top of the chamber.",
+   "what": "A plate with many small openings. Conceptual model only.",
+   "why": "Fuel and oxidizer must be mixed finely and evenly so they burn smoothly.",
+   "how": "Many small streams enter the chamber together and mix before burning.",
+   "facts": [
+    "Injector design strongly affects combustion stability.",
+    "This model is a non-functional teaching visual."
+   ],
+   "interfaces": [
+    {
+     "type": "Fluid",
+     "text": "Fuel and oxidizer inlets from the turbopump."
+    }
+   ],
+   "connects": [
+    "S1E_Chamber",
+    "S1E_Turbopump"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S1E_Chamber",
+   "name": "Combustion chamber (concept)",
+   "subsystem": "propulsion",
+   "assembly": "Assembly_Stage1",
+   "summary": "Where propellants burn to make hot, high-pressure gas.",
+   "what": "A strong, heat-resistant vessel shown in copper colour. Conceptual model only.",
+   "why": "Burning creates hot gas at high pressure. That gas is what is accelerated out of the nozzle to make thrust.",
+   "how": "Propellant burns, the gas expands and rushes toward the throat. The wall is kept from melting by cooling; one common concept is to run propellant through channels around the wall first.",
+   "facts": [
+    "Chamber walls must survive temperatures above their own melting point by being cooled."
+   ],
+   "interfaces": [
+    {
+     "type": "Fluid",
+     "text": "Receives propellant from the injector."
+    },
+    {
+     "type": "Mechanical",
+     "text": "Joins the nozzle at the throat."
+    }
+   ],
+   "connects": [
+    "S1E_Injector",
+    "S1E_Nozzle"
+   ],
+   "quiz": {
+    "question": "Why is the chamber wall cooled?",
+    "options": [
+     "To make the rocket quieter",
+     "Combustion gas is hotter than the wall can survive",
+     "To store fuel"
+    ],
+    "answer": 1,
+    "explanation": "Flame temperature exceeds what the wall material can tolerate, so cooling is essential."
+   },
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S1E_Nozzle",
+   "name": "Engine nozzle (concept)",
+   "subsystem": "propulsion",
+   "assembly": "Assembly_Stage1",
+   "summary": "Shapes the hot gas into a fast, straight jet.",
+   "what": "A narrow throat followed by a flared bell.",
+   "why": "The nozzle converts the gas's heat and pressure into speed. A faster exhaust means more thrust for the same propellant.",
+   "how": "Gas speeds up through the narrow throat and keeps accelerating as the bell widens. NASA's thrust equation is F = mdot x Ve + (pe - p0) x Ae: mass flow times exhaust speed, plus a pressure term that depends on the exit area.",
+   "facts": [
+    "Nozzles for sea level are shorter; nozzles for vacuum are larger.",
+    "Thrust is higher in vacuum than at sea level for the same engine."
+   ],
+   "interfaces": [
+    {
+     "type": "Mechanical",
+     "text": "Attaches to the chamber at the throat."
+    }
+   ],
+   "connects": [
+    "S1E_Chamber",
+    "S1E_GimbalMount"
+   ],
+   "quiz": {
+    "question": "In the thrust equation, what does the (pe - p0) x Ae term depend on?",
+    "options": [
+     "Exit pressure vs outside pressure and exit area",
+     "Only fuel mass",
+     "Only rocket height"
+    ],
+    "answer": 0,
+    "explanation": "It is the pressure thrust: exit pressure minus ambient pressure, times exit area."
+   },
+   "source": "V",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S1E_Turbopump",
+   "name": "Turbopump (concept)",
+   "subsystem": "propulsion",
+   "assembly": "Assembly_Stage1",
+   "summary": "Pumps propellant to the high pressure the chamber needs.",
+   "what": "A turbine-driven pump unit beside the chamber. Conceptual model only.",
+   "why": "Tank pressure is far too low for a big engine. Pumps raise propellant pressure so it can flow into the chamber.",
+   "how": "A turbine spins pumps that push fuel and oxidizer into the injector. Different engine designs power the turbine in different ways.",
+   "facts": [
+    "Pumps let tanks be thin and light instead of heavy pressure vessels."
+   ],
+   "interfaces": [
+    {
+     "type": "Fluid",
+     "text": "Inlets from feed lines; outlets to the injector."
+    }
+   ],
+   "connects": [
+    "S1_FuelFeedLine",
+    "S1_OxidizerFeedLine",
+    "S1E_Injector"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S1E_GimbalMount",
+   "name": "Gimbal mount",
+   "subsystem": "propulsion",
+   "assembly": "Assembly_Stage1",
+   "summary": "Lets the engine swivel to steer the rocket.",
+   "what": "A ring joint with two actuators.",
+   "why": "Steering by tilting the engine's thrust is how large rockets are guided. NASA notes full-scale rockets usually use pivoting nozzles rather than fins.",
+   "how": "The flight computer commands the actuators; tilting the thrust turns the rocket.",
+   "facts": [
+    "This is called thrust vector control."
+   ],
+   "interfaces": [
+    {
+     "type": "Mechanical",
+     "text": "Between thrust structure and engine."
+    },
+    {
+     "type": "Data",
+     "text": "Commands from the flight computer."
+    }
+   ],
+   "connects": [
+    "AV_FlightComputer",
+    "S1E_Nozzle",
+    "S1_ThrustStructure"
+   ],
+   "quiz": {
+    "question": "How do large rockets mostly steer?",
+    "options": [
+     "Big wings",
+     "Tilting engine thrust",
+     "Parachutes"
+    ],
+    "answer": 1,
+    "explanation": "Thrust vector control tilts the engine so thrust points slightly off-centre."
+   },
+   "source": "V",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S1_Engine_1",
+   "name": "Stage 1 engine 1",
+   "subsystem": "propulsion",
+   "assembly": "Assembly_Stage1",
+   "summary": "One of eight outer engines in the cluster.",
+   "what": "A simplified engine with chamber and bell, arranged in a ring around the centre engine.",
+   "why": "A cluster of engines gives high total thrust from engines of a manageable size, and lets one design be reused many times.",
+   "how": "Each engine works like the centre engine. Together they provide the force needed to lift the full rocket.",
+   "facts": [
+    "Liftoff thrust must exceed the rocket's weight (thrust-to-weight above 1)."
+   ],
+   "interfaces": [
+    {
+     "type": "Fluid",
+     "text": "Fed from the feed lines."
+    },
+    {
+     "type": "Mechanical",
+     "text": "Mounted to the thrust structure."
+    }
+   ],
+   "connects": [
+    "S1_ThrustStructure",
+    "S1E_Nozzle"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S1_Engine_2",
+   "name": "Stage 1 engine 2",
+   "subsystem": "propulsion",
+   "assembly": "Assembly_Stage1",
+   "summary": "One of eight outer engines in the cluster.",
+   "what": "A simplified engine with chamber and bell, arranged in a ring around the centre engine.",
+   "why": "A cluster of engines gives high total thrust from engines of a manageable size, and lets one design be reused many times.",
+   "how": "Each engine works like the centre engine. Together they provide the force needed to lift the full rocket.",
+   "facts": [
+    "Liftoff thrust must exceed the rocket's weight (thrust-to-weight above 1)."
+   ],
+   "interfaces": [
+    {
+     "type": "Fluid",
+     "text": "Fed from the feed lines."
+    },
+    {
+     "type": "Mechanical",
+     "text": "Mounted to the thrust structure."
+    }
+   ],
+   "connects": [
+    "S1_ThrustStructure",
+    "S1E_Nozzle"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S1_Engine_3",
+   "name": "Stage 1 engine 3",
+   "subsystem": "propulsion",
+   "assembly": "Assembly_Stage1",
+   "summary": "One of eight outer engines in the cluster.",
+   "what": "A simplified engine with chamber and bell, arranged in a ring around the centre engine.",
+   "why": "A cluster of engines gives high total thrust from engines of a manageable size, and lets one design be reused many times.",
+   "how": "Each engine works like the centre engine. Together they provide the force needed to lift the full rocket.",
+   "facts": [
+    "Liftoff thrust must exceed the rocket's weight (thrust-to-weight above 1)."
+   ],
+   "interfaces": [
+    {
+     "type": "Fluid",
+     "text": "Fed from the feed lines."
+    },
+    {
+     "type": "Mechanical",
+     "text": "Mounted to the thrust structure."
+    }
+   ],
+   "connects": [
+    "S1_ThrustStructure",
+    "S1E_Nozzle"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S1_Engine_4",
+   "name": "Stage 1 engine 4",
+   "subsystem": "propulsion",
+   "assembly": "Assembly_Stage1",
+   "summary": "One of eight outer engines in the cluster.",
+   "what": "A simplified engine with chamber and bell, arranged in a ring around the centre engine.",
+   "why": "A cluster of engines gives high total thrust from engines of a manageable size, and lets one design be reused many times.",
+   "how": "Each engine works like the centre engine. Together they provide the force needed to lift the full rocket.",
+   "facts": [
+    "Liftoff thrust must exceed the rocket's weight (thrust-to-weight above 1)."
+   ],
+   "interfaces": [
+    {
+     "type": "Fluid",
+     "text": "Fed from the feed lines."
+    },
+    {
+     "type": "Mechanical",
+     "text": "Mounted to the thrust structure."
+    }
+   ],
+   "connects": [
+    "S1_ThrustStructure",
+    "S1E_Nozzle"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S1_Engine_5",
+   "name": "Stage 1 engine 5",
+   "subsystem": "propulsion",
+   "assembly": "Assembly_Stage1",
+   "summary": "One of eight outer engines in the cluster.",
+   "what": "A simplified engine with chamber and bell, arranged in a ring around the centre engine.",
+   "why": "A cluster of engines gives high total thrust from engines of a manageable size, and lets one design be reused many times.",
+   "how": "Each engine works like the centre engine. Together they provide the force needed to lift the full rocket.",
+   "facts": [
+    "Liftoff thrust must exceed the rocket's weight (thrust-to-weight above 1)."
+   ],
+   "interfaces": [
+    {
+     "type": "Fluid",
+     "text": "Fed from the feed lines."
+    },
+    {
+     "type": "Mechanical",
+     "text": "Mounted to the thrust structure."
+    }
+   ],
+   "connects": [
+    "S1_ThrustStructure",
+    "S1E_Nozzle"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S1_Engine_6",
+   "name": "Stage 1 engine 6",
+   "subsystem": "propulsion",
+   "assembly": "Assembly_Stage1",
+   "summary": "One of eight outer engines in the cluster.",
+   "what": "A simplified engine with chamber and bell, arranged in a ring around the centre engine.",
+   "why": "A cluster of engines gives high total thrust from engines of a manageable size, and lets one design be reused many times.",
+   "how": "Each engine works like the centre engine. Together they provide the force needed to lift the full rocket.",
+   "facts": [
+    "Liftoff thrust must exceed the rocket's weight (thrust-to-weight above 1)."
+   ],
+   "interfaces": [
+    {
+     "type": "Fluid",
+     "text": "Fed from the feed lines."
+    },
+    {
+     "type": "Mechanical",
+     "text": "Mounted to the thrust structure."
+    }
+   ],
+   "connects": [
+    "S1_ThrustStructure",
+    "S1E_Nozzle"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S1_Engine_7",
+   "name": "Stage 1 engine 7",
+   "subsystem": "propulsion",
+   "assembly": "Assembly_Stage1",
+   "summary": "One of eight outer engines in the cluster.",
+   "what": "A simplified engine with chamber and bell, arranged in a ring around the centre engine.",
+   "why": "A cluster of engines gives high total thrust from engines of a manageable size, and lets one design be reused many times.",
+   "how": "Each engine works like the centre engine. Together they provide the force needed to lift the full rocket.",
+   "facts": [
+    "Liftoff thrust must exceed the rocket's weight (thrust-to-weight above 1)."
+   ],
+   "interfaces": [
+    {
+     "type": "Fluid",
+     "text": "Fed from the feed lines."
+    },
+    {
+     "type": "Mechanical",
+     "text": "Mounted to the thrust structure."
+    }
+   ],
+   "connects": [
+    "S1_ThrustStructure",
+    "S1E_Nozzle"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S1_Engine_8",
+   "name": "Stage 1 engine 8",
+   "subsystem": "propulsion",
+   "assembly": "Assembly_Stage1",
+   "summary": "One of eight outer engines in the cluster.",
+   "what": "A simplified engine with chamber and bell, arranged in a ring around the centre engine.",
+   "why": "A cluster of engines gives high total thrust from engines of a manageable size, and lets one design be reused many times.",
+   "how": "Each engine works like the centre engine. Together they provide the force needed to lift the full rocket.",
+   "facts": [
+    "Liftoff thrust must exceed the rocket's weight (thrust-to-weight above 1)."
+   ],
+   "interfaces": [
+    {
+     "type": "Fluid",
+     "text": "Fed from the feed lines."
+    },
+    {
+     "type": "Mechanical",
+     "text": "Mounted to the thrust structure."
+    }
+   ],
+   "connects": [
+    "S1_ThrustStructure",
+    "S1E_Nozzle"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S1_OxidizerFeedLine",
+   "name": "Oxidizer feed line",
+   "subsystem": "propellant",
+   "assembly": "Assembly_Stage1",
+   "summary": "The pipe carrying oxidizer to the engines.",
+   "what": "A large insulated pipe that runs from the oxidizer tank down to the engine section.",
+   "why": "The oxidizer tank is high up and the engines are at the bottom. The pipe connects them.",
+   "how": "Gravity and tank pressure push oxidizer down the pipe to the turbopumps.",
+   "facts": [
+    "Some oxidizers are extremely cold, so pipes may be insulated."
+   ],
+   "interfaces": [
+    {
+     "type": "Fluid",
+     "text": "Tank outlet to turbopump inlet."
+    }
+   ],
+   "connects": [
+    "S1_OxidizerTank",
+    "S1E_Turbopump"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S1_FuelFeedLine",
+   "name": "Fuel feed line",
+   "subsystem": "propellant",
+   "assembly": "Assembly_Stage1",
+   "summary": "The pipe carrying fuel to the engines.",
+   "what": "A shorter pipe from the fuel tank outlet to the engines.",
+   "why": "Delivers fuel to the pumps.",
+   "how": "Same principle as the oxidizer line.",
+   "facts": [
+    "Valves in lines open and close flow (not shown)."
+   ],
+   "interfaces": [
+    {
+     "type": "Fluid",
+     "text": "Tank outlet to turbopump inlet."
+    }
+   ],
+   "connects": [
+    "S1_FuelTank",
+    "S1E_Turbopump"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S1_PressurantBottles",
+   "name": "Pressurant bottles",
+   "subsystem": "propellant",
+   "assembly": "Assembly_Stage1",
+   "summary": "Store inert gas to pressurise the tanks.",
+   "what": "Strong spherical bottles wrapped in carbon fibre.",
+   "why": "As propellant leaves a tank, something must fill the space; pressurant gas keeps tank pressure steady so the tank holds its shape and flow stays smooth.",
+   "how": "Gas flows from the bottles into the tops of the tanks through regulators.",
+   "facts": [
+    "Spheres are the best shape for holding high pressure."
+   ],
+   "interfaces": [
+    {
+     "type": "Fluid",
+     "text": "Gas lines to tank tops."
+    }
+   ],
+   "connects": [
+    "S1_FuelTank",
+    "S1_OxidizerTank"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S1_GridFins",
+   "name": "Grid fins",
+   "subsystem": "aerodynamic",
+   "assembly": "Assembly_Stage1",
+   "summary": "Lattice control surfaces used to steer during descent.",
+   "what": "Four lattice panels near the top of the first stage. Typical of reusable boosters.",
+   "why": "A booster that returns for landing needs to steer through the air after separation.",
+   "how": "Moving fins change airflow forces, nudging the stage toward the landing target.",
+   "facts": [
+    "Included to illustrate a reusable first-stage concept."
+   ],
+   "interfaces": [
+    {
+     "type": "Mechanical",
+     "text": "Hinged on the upper skin."
+    },
+    {
+     "type": "Data",
+     "text": "Commanded by the flight computer."
+    }
+   ],
+   "connects": [
+    "AV_FlightComputer",
+    "S1_Skin"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S1_LandingLegs",
+   "name": "Landing legs",
+   "subsystem": "recovery",
+   "assembly": "Assembly_Stage1",
+   "summary": "Fold out so the stage can land upright.",
+   "what": "Four angled struts with footpads.",
+   "why": "Landing the stage lets it be reused instead of discarded.",
+   "how": "Legs fold against the body during ascent and swing out before touchdown; they absorb landing loads.",
+   "facts": [
+    "Reusability trades payload capacity for recovery hardware mass."
+   ],
+   "interfaces": [
+    {
+     "type": "Mechanical",
+     "text": "Hinged to the engine section."
+    }
+   ],
+   "connects": [
+    "S1_ThrustStructure"
+   ],
+   "quiz": {
+    "question": "Why add landing legs?",
+    "options": [
+     "To launch faster",
+     "To let the stage be recovered and reused",
+     "To store propellant"
+    ],
+    "answer": 1,
+    "explanation": "Recovery lets the expensive stage fly again."
+   },
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "IS_InterstageShell",
+   "name": "Interstage",
+   "subsystem": "structure",
+   "assembly": "Assembly_Interstage",
+   "summary": "Connects the first stage to the second stage.",
+   "what": "A short, dark cylinder between the stages.",
+   "why": "Stages are separate vehicles stacked together. The interstage holds them rigidly during ascent and gives the upper engine room for its nozzle.",
+   "how": "It carries loads between stages, then separates from the lower stage when it is time to part.",
+   "facts": [
+    "The upper stage's big nozzle sits partly inside this section during ascent."
+   ],
+   "interfaces": [
+    {
+     "type": "Mechanical",
+     "text": "Lower ring: stage 1 forward skirt. Upper ring: stage 2."
+    }
+   ],
+   "connects": [
+    "S1_ForwardSkirt",
+    "S2_Skin",
+    "SEP_Ring_Pushers"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "SEP_Ring_Pushers",
+   "name": "Separation ring & pushers (concept)",
+   "subsystem": "separation",
+   "assembly": "Assembly_Interstage",
+   "summary": "The joint that lets the two stages part.",
+   "what": "A ring and several pusher units. A conceptual view; release hardware details are deliberately not shown.",
+   "why": "The first stage is dead weight once its propellant is gone. Releasing it lets the upper stage keep accelerating with less mass.",
+   "how": "On command from the flight computer, the joint releases and pushers move the stages apart so they do not collide.",
+   "facts": [
+    "Staging follows from the rocket equation: dropping dead mass improves final speed."
+   ],
+   "interfaces": [
+    {
+     "type": "Mechanical",
+     "text": "Between stage 1 and interstage."
+    },
+    {
+     "type": "Data",
+     "text": "Event command from the flight computer."
+    }
+   ],
+   "connects": [
+    "AV_FlightComputer",
+    "IS_InterstageShell"
+   ],
+   "quiz": {
+    "question": "Why do rockets separate stages?",
+    "options": [
+     "To drop dead mass and go faster",
+     "To make noise",
+     "To save paint"
+    ],
+    "answer": 0,
+    "explanation": "Shedding empty structure improves the mass ratio of what remains."
+   },
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S2_Skin",
+   "name": "Stage 2 outer skin",
+   "subsystem": "structure",
+   "assembly": "Assembly_Stage2",
+   "summary": "Smooth outer wall of the upper stage.",
+   "what": "A thin cylindrical shell around the upper tanks.",
+   "why": "Same purpose as the first-stage skin: smooth airflow and protection.",
+   "how": "See Stage 1 skin.",
+   "facts": [
+    "The upper stage flies mostly above the atmosphere."
+   ],
+   "interfaces": [
+    {
+     "type": "Mechanical",
+     "text": "Rings at both ends."
+    }
+   ],
+   "connects": [
+    "S2_FuelTank",
+    "S2_OxidizerTank"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S2_FuelTank",
+   "name": "Stage 2 fuel tank",
+   "subsystem": "propellant",
+   "assembly": "Assembly_Stage2",
+   "summary": "Stores fuel for the upper stage.",
+   "what": "A smaller tank than stage 1.",
+   "why": "The upper stage finishes the climb and adds the sideways speed needed for orbit.",
+   "how": "Works like the first-stage tank.",
+   "facts": [
+    "Upper stages carry far less propellant than boosters."
+   ],
+   "interfaces": [
+    {
+     "type": "Fluid",
+     "text": "Fuel line to the upper engine."
+    }
+   ],
+   "connects": [
+    "S2_ThrustStructure",
+    "S2_Intertank"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S2_OxidizerTank",
+   "name": "Stage 2 oxidizer tank",
+   "subsystem": "propellant",
+   "assembly": "Assembly_Stage2",
+   "summary": "Stores oxidizer for the upper stage.",
+   "what": "A tank above the upper fuel tank.",
+   "why": "Supplies the oxygen that lets the upper stage's fuel burn.",
+   "how": "Oxidizer flows down a feed line.",
+   "facts": [],
+   "interfaces": [
+    {
+     "type": "Fluid",
+     "text": "Line to the upper engine."
+    }
+   ],
+   "connects": [
+    "S2_OxidizerFeedLine",
+    "S2_Intertank"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S2_Intertank",
+   "name": "Stage 2 intertank",
+   "subsystem": "structure",
+   "assembly": "Assembly_Stage2",
+   "summary": "Ring between the upper tanks.",
+   "what": "Short structural ring.",
+   "why": "Joins the two tanks and passes loads.",
+   "how": "As for stage 1.",
+   "facts": [],
+   "interfaces": [
+    {
+     "type": "Mechanical",
+     "text": "Ring joints."
+    }
+   ],
+   "connects": [
+    "S2_FuelTank",
+    "S2_OxidizerTank"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S2_ForwardSkirt",
+   "name": "Stage 2 forward skirt",
+   "subsystem": "structure",
+   "assembly": "Assembly_Stage2",
+   "summary": "Top ring of the upper stage.",
+   "what": "Ring that connects to the avionics bay.",
+   "why": "Provides the mounting surface for the avionics bay and payload section.",
+   "how": "Spreads loads into the tank wall.",
+   "facts": [],
+   "interfaces": [
+    {
+     "type": "Mechanical",
+     "text": "Connects to the avionics bay."
+    }
+   ],
+   "connects": [
+    "AV_BayStructure",
+    "S2_OxidizerTank"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S2_ThrustStructure",
+   "name": "Stage 2 thrust structure",
+   "subsystem": "structure",
+   "assembly": "Assembly_Stage2",
+   "summary": "Carries the upper engine's force.",
+   "what": "Plate with radial beams under the fuel tank.",
+   "why": "Passes engine thrust into the upper stage structure.",
+   "how": "Same principle as stage 1.",
+   "facts": [],
+   "interfaces": [
+    {
+     "type": "Mechanical",
+     "text": "Engine mount."
+    }
+   ],
+   "connects": [
+    "S2E_GimbalActuators",
+    "S2_FuelTank"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S2E_Injector",
+   "name": "Upper-stage injector (concept)",
+   "subsystem": "propulsion",
+   "assembly": "Assembly_Stage2",
+   "summary": "Mixes propellants in the upper engine.",
+   "what": "Conceptual injector plate.",
+   "why": "Same purpose as the first-stage injector.",
+   "how": "See stage 1 injector.",
+   "facts": [],
+   "interfaces": [
+    {
+     "type": "Fluid",
+     "text": "Propellant inlets."
+    }
+   ],
+   "connects": [
+    "S2E_Chamber"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S2E_Chamber",
+   "name": "Upper-stage chamber (concept)",
+   "subsystem": "propulsion",
+   "assembly": "Assembly_Stage2",
+   "summary": "Burns propellant in the upper engine.",
+   "what": "A smaller chamber.",
+   "why": "Creates hot gas for the vacuum nozzle.",
+   "how": "See stage 1 chamber.",
+   "facts": [],
+   "interfaces": [
+    {
+     "type": "Fluid",
+     "text": "Receives propellant."
+    }
+   ],
+   "connects": [
+    "S2E_Injector",
+    "S2E_NozzleExtension"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S2E_NozzleExtension",
+   "name": "Vacuum nozzle (concept)",
+   "subsystem": "propulsion",
+   "assembly": "Assembly_Stage2",
+   "summary": "A very large bell designed for space.",
+   "what": "A wide bell that sits inside the interstage during ascent.",
+   "why": "In vacuum there is no outside air pressure holding the exhaust in, so a larger bell lets the gas expand more and gives better efficiency.",
+   "how": "As the bell widens, exhaust pressure drops toward zero and more energy becomes speed.",
+   "facts": [
+    "This is why upper stages look different from boosters.",
+    "In the thrust equation the pressure term depends on exit area."
+   ],
+   "interfaces": [
+    {
+     "type": "Mechanical",
+     "text": "Bolts to the chamber at the throat."
+    }
+   ],
+   "connects": [
+    "S2E_Chamber",
+    "IS_InterstageShell"
+   ],
+   "quiz": {
+    "question": "Why is the upper-stage nozzle so large?",
+    "options": [
+     "It works in vacuum and needs more expansion",
+     "For looks",
+     "To hold more fuel"
+    ],
+    "answer": 0,
+    "explanation": "A bigger expansion ratio suits low outside pressure."
+   },
+   "source": "V",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S2E_Turbopump",
+   "name": "Upper-stage turbopump (concept)",
+   "subsystem": "propulsion",
+   "assembly": "Assembly_Stage2",
+   "summary": "Pumps propellant for the upper engine.",
+   "what": "Compact turbine-driven pump.",
+   "why": "Same job as in stage 1.",
+   "how": "See stage 1 turbopump.",
+   "facts": [],
+   "interfaces": [
+    {
+     "type": "Fluid",
+     "text": "Pump inlets and outlets."
+    }
+   ],
+   "connects": [
+    "S2E_Injector",
+    "S2_OxidizerFeedLine"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S2E_GimbalActuators",
+   "name": "Upper-stage gimbal actuators",
+   "subsystem": "propulsion",
+   "assembly": "Assembly_Stage2",
+   "summary": "Two actuators that swivel the upper engine.",
+   "what": "Two rods attached between the structure and the engine.",
+   "why": "Steers the upper stage by tilting the engine's thrust.",
+   "how": "Commanded by the flight computer; each rod extends or retracts.",
+   "facts": [
+    "Two actuators in different directions allow tilt in any direction."
+   ],
+   "interfaces": [
+    {
+     "type": "Mechanical",
+     "text": "Between thrust structure and engine."
+    },
+    {
+     "type": "Data",
+     "text": "Commands from the flight computer."
+    }
+   ],
+   "connects": [
+    "AV_FlightComputer",
+    "S2_ThrustStructure"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S2_OxidizerFeedLine",
+   "name": "Stage 2 oxidizer feed line",
+   "subsystem": "propellant",
+   "assembly": "Assembly_Stage2",
+   "summary": "Carries oxidizer down to the upper engine.",
+   "what": "A pipe running from the top tank to the engine.",
+   "why": "Connects tank to pump.",
+   "how": "As stage 1.",
+   "facts": [],
+   "interfaces": [
+    {
+     "type": "Fluid",
+     "text": "Tank to pump."
+    }
+   ],
+   "connects": [
+    "S2_OxidizerTank",
+    "S2E_Turbopump"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "S2_PressurantBottles",
+   "name": "Stage 2 pressurant bottles",
+   "subsystem": "propellant",
+   "assembly": "Assembly_Stage2",
+   "summary": "Gas bottles for pressurising the upper tanks.",
+   "what": "Two spherical composite bottles.",
+   "why": "Same purpose as in stage 1.",
+   "how": "As stage 1.",
+   "facts": [],
+   "interfaces": [
+    {
+     "type": "Fluid",
+     "text": "Gas lines to tanks."
+    }
+   ],
+   "connects": [
+    "S2_FuelTank",
+    "S2_OxidizerTank"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "AV_BayStructure",
+   "name": "Avionics bay",
+   "subsystem": "structure",
+   "assembly": "Assembly_AvionicsBay",
+   "summary": "The protected compartment that holds the electronics.",
+   "what": "A short ring with a mounting deck.",
+   "why": "Electronics are delicate. The bay gives them a vibration-resistant mount and a clean place for wiring.",
+   "how": "Units are bolted to the deck; the bay is part of the load path.",
+   "facts": [
+    "Avionics are mounted high, away from engine heat and vibration."
+   ],
+   "interfaces": [
+    {
+     "type": "Mechanical",
+     "text": "Between stage 2 forward skirt and payload adapter."
+    }
+   ],
+   "connects": [
+    "AV_FlightComputer",
+    "AV_IMU",
+    "AV_BatteryPack"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "AV_FlightComputer",
+   "name": "Flight computer",
+   "subsystem": "avionics",
+   "assembly": "Assembly_AvionicsBay",
+   "summary": "The rocket's brain.",
+   "what": "A rugged computer board in a metal chassis.",
+   "why": "Someone or something has to decide in real time how to steer. The flight computer does that.",
+   "how": "It reads sensor data, estimates where the rocket is and how it is pointing, decides how to steer, and triggers events such as stage separation. Critical vehicles use redundant computers so one failure does not end the mission.",
+   "facts": [
+    "Redundancy is a core avionics idea.",
+    "In this model, all data shown is simulated."
+   ],
+   "interfaces": [
+    {
+     "type": "Power",
+     "text": "From the power distribution unit."
+    },
+    {
+     "type": "Data",
+     "text": "Sensor inputs; commands to gimbal actuators and event signals."
+    }
+   ],
+   "connects": [
+    "AV_IMU",
+    "AV_DataAcquisition",
+    "AV_TelemetryTransmitter",
+    "S1E_GimbalMount",
+    "S2E_GimbalActuators",
+    "SEP_Ring_Pushers"
+   ],
+   "quiz": {
+    "question": "What is redundancy in avionics?",
+    "options": [
+     "Extra backup units so a failure doesn't end the mission",
+     "Faster processors",
+     "Longer cables"
+    ],
+    "answer": 0,
+    "explanation": "Duplicate units and voting protect against single failures."
+   },
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "AV_IMU",
+   "name": "Inertial measurement unit (IMU)",
+   "subsystem": "avionics",
+   "assembly": "Assembly_AvionicsBay",
+   "summary": "Feels how the rocket moves and turns.",
+   "what": "A small sensor box with accelerometers and gyroscopes.",
+   "why": "The rocket needs to know its orientation and acceleration without looking at anything outside.",
+   "how": "Accelerometers measure acceleration; gyroscopes measure rotation rate. Combining them over time estimates attitude and velocity, though small errors grow (drift), so other sensors such as GPS may correct them.",
+   "facts": [
+    "An accelerometer in free fall reads zero.",
+    "Drift is why aiding sensors are used."
+   ],
+   "interfaces": [
+    {
+     "type": "Power",
+     "text": "Low-voltage supply."
+    },
+    {
+     "type": "Data",
+     "text": "Digital output to flight computer."
+    }
+   ],
+   "connects": [
+    "AV_FlightComputer",
+    "AV_GPSReceiverAntenna"
+   ],
+   "quiz": {
+    "question": "What does a gyroscope measure?",
+    "options": [
+     "Rotation rate",
+     "Temperature",
+     "Fuel level"
+    ],
+    "answer": 0,
+    "explanation": "Gyros sense how fast the vehicle is rotating."
+   },
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "AV_DataAcquisition",
+   "name": "Data acquisition unit",
+   "subsystem": "avionics",
+   "assembly": "Assembly_AvionicsBay",
+   "summary": "Collects readings from many sensors.",
+   "what": "A board that gathers signals from pressure and temperature sensors around the vehicle.",
+   "why": "There can be hundreds of measurements. This unit collects and digitises them for the computer and for telemetry.",
+   "how": "It converts analogue sensor signals to digital data and packages them.",
+   "facts": [
+    "Pressure and temperature sensors tell engineers how the vehicle is behaving."
+   ],
+   "interfaces": [
+    {
+     "type": "Data",
+     "text": "Sensor inputs; digital output to flight computer."
+    }
+   ],
+   "connects": [
+    "AV_FlightComputer",
+    "AV_TelemetryTransmitter"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "AV_BatteryPack",
+   "name": "Battery pack",
+   "subsystem": "electrical",
+   "assembly": "Assembly_AvionicsBay",
+   "summary": "Stores the electrical energy for the vehicle.",
+   "what": "A battery module in a protective case.",
+   "why": "The rocket's electronics need power during the whole flight. For short missions, batteries are a simple source.",
+   "how": "Chemical energy converts to electrical energy on demand.",
+   "facts": [
+    "Power budget = how much energy each unit uses x time."
+   ],
+   "interfaces": [
+    {
+     "type": "Power",
+     "text": "Output to power distribution unit."
+    }
+   ],
+   "connects": [
+    "AV_PowerDistributionUnit"
+   ],
+   "quiz": {
+    "question": "Why must the power system be sized carefully?",
+    "options": [
+     "Batteries run out if the load is too large",
+     "Batteries are magnetic",
+     "Wires get lost"
+    ],
+    "answer": 0,
+    "explanation": "Energy = power x time; exceed capacity and units lose power."
+   },
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "AV_PowerDistributionUnit",
+   "name": "Power distribution unit",
+   "subsystem": "electrical",
+   "assembly": "Assembly_AvionicsBay",
+   "summary": "Routes power to every unit safely.",
+   "what": "A box that takes battery power and feeds each subsystem.",
+   "why": "Each unit needs the right voltage and protection from overload.",
+   "how": "It regulates voltage and protects circuits; it can isolate a faulty branch.",
+   "facts": [
+    "A single short circuit should not take everything down."
+   ],
+   "interfaces": [
+    {
+     "type": "Power",
+     "text": "Input from battery; outputs to each unit."
+    }
+   ],
+   "connects": [
+    "AV_BatteryPack",
+    "AV_FlightComputer",
+    "AV_TelemetryTransmitter"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "AV_TelemetryTransmitter",
+   "name": "Telemetry transmitter",
+   "subsystem": "avionics",
+   "assembly": "Assembly_AvionicsBay",
+   "summary": "Sends data to the ground by radio.",
+   "what": "A radio transmitter unit.",
+   "why": "Engineers need to see how the vehicle is doing while it flies.",
+   "how": "It packages sensor data and sends it to a ground station through the antenna.",
+   "facts": [
+    "Everything shown in this model is simulated, never real NASA telemetry."
+   ],
+   "interfaces": [
+    {
+     "type": "Data",
+     "text": "Input from flight computer; output to antenna."
+    },
+    {
+     "type": "Power",
+     "text": "From PDU."
+    }
+   ],
+   "connects": [
+    "AV_TelemetryAntenna",
+    "AV_FlightComputer"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "AV_TelemetryAntenna",
+   "name": "Telemetry antenna",
+   "subsystem": "avionics",
+   "assembly": "Assembly_AvionicsBay",
+   "summary": "Radiates the telemetry signal.",
+   "what": "A small antenna on the avionics bay skin.",
+   "why": "It sends the radio signal out of the vehicle.",
+   "how": "Radio waves carry the data to ground stations.",
+   "facts": [],
+   "interfaces": [
+    {
+     "type": "Data",
+     "text": "RF from transmitter."
+    }
+   ],
+   "connects": [
+    "AV_TelemetryTransmitter"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "AV_GPSReceiverAntenna",
+   "name": "GPS antenna",
+   "subsystem": "avionics",
+   "assembly": "Assembly_AvionicsBay",
+   "summary": "Receives position and time signals from navigation satellites.",
+   "what": "A small flat antenna on the skin.",
+   "why": "It gives the rocket an independent position check to correct inertial drift.",
+   "how": "It receives signals from navigation satellites and computes position.",
+   "facts": [],
+   "interfaces": [
+    {
+     "type": "Data",
+     "text": "To flight computer."
+    }
+   ],
+   "connects": [
+    "AV_IMU",
+    "AV_FlightComputer"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "AV_WiringHarness",
+   "name": "Wiring harness",
+   "subsystem": "electrical",
+   "assembly": "Assembly_AvionicsBay",
+   "summary": "The bundled wiring that connects everything.",
+   "what": "A cable bundle running from the avionics bay down the side to the engine section.",
+   "why": "Electronics at the top must talk to actuators at the bottom. The harness carries power and signals.",
+   "how": "Wires are bundled, shielded and supported so vibration does not damage them.",
+   "facts": [
+    "Wiring adds mass; engineers minimise it.",
+    "This model shows a simple path only."
+   ],
+   "interfaces": [
+    {
+     "type": "Power",
+     "text": "Power lines."
+    },
+    {
+     "type": "Data",
+     "text": "Signal lines."
+    }
+   ],
+   "connects": [
+    "AV_FlightComputer",
+    "S1E_GimbalMount"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "PL_PayloadAdapter",
+   "name": "Payload adapter",
+   "subsystem": "payload",
+   "assembly": "Assembly_PayloadSection",
+   "summary": "The mounting cone for the satellite.",
+   "what": "A conical carbon-fibre ring.",
+   "why": "The satellite must attach rigidly during launch and release cleanly in orbit.",
+   "how": "It carries launch loads into the avionics bay and holds the satellite until release.",
+   "facts": [
+    "Adapters differ by payload size and bolt pattern."
+   ],
+   "interfaces": [
+    {
+     "type": "Mechanical",
+     "text": "Bolts to the avionics bay; interface to satellite."
+    }
+   ],
+   "connects": [
+    "PL_SatelliteBus",
+    "AV_BayStructure"
+   ],
+   "quiz": {
+    "question": "What is the payload adapter's job?",
+    "options": [
+     "Hold the satellite and release it in orbit",
+     "Steer the rocket",
+     "Store fuel"
+    ],
+    "answer": 0,
+    "explanation": "It is the mechanical interface between rocket and satellite."
+   },
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "PL_SatelliteBus",
+   "name": "Satellite bus",
+   "subsystem": "payload",
+   "assembly": "Assembly_PayloadSection",
+   "summary": "The main body of the satellite.",
+   "what": "A box wrapped in gold-coloured thermal blankets.",
+   "why": "It houses the satellite's own computer, radio, power and instruments.",
+   "how": "The bus provides power, pointing, communications and housing for the mission instrument.",
+   "facts": [
+    "The 'bus' is the platform; the 'payload instrument' is what does the science or service."
+   ],
+   "interfaces": [
+    {
+     "type": "Mechanical",
+     "text": "To payload adapter."
+    },
+    {
+     "type": "Power",
+     "text": "Own batteries and solar arrays."
+    }
+   ],
+   "connects": [
+    "PL_PayloadAdapter",
+    "PL_SolarArrays",
+    "PL_Antenna"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "PL_SolarArrays",
+   "name": "Solar arrays (stowed)",
+   "subsystem": "payload",
+   "assembly": "Assembly_PayloadSection",
+   "summary": "Panels that make electricity from sunlight.",
+   "what": "Folded panels held against the sides.",
+   "why": "Satellites have to make power for years.",
+   "how": "Solar cells convert sunlight to electricity. They are folded for launch and deployed in orbit.",
+   "facts": [],
+   "interfaces": [
+    {
+     "type": "Power",
+     "text": "To satellite bus."
+    }
+   ],
+   "connects": [
+    "PL_SatelliteBus"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "PL_Antenna",
+   "name": "Satellite antenna",
+   "subsystem": "payload",
+   "assembly": "Assembly_PayloadSection",
+   "summary": "The satellite's link to Earth.",
+   "what": "A small dish.",
+   "why": "Satellites must send data and receive commands.",
+   "how": "It focuses radio waves toward Earth.",
+   "facts": [],
+   "interfaces": [
+    {
+     "type": "Data",
+     "text": "Radio link."
+    }
+   ],
+   "connects": [
+    "PL_SatelliteBus"
+   ],
+   "quiz": null,
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "PL_FairingHalf_A",
+   "name": "Payload fairing, half A",
+   "subsystem": "aerodynamic",
+   "assembly": "Assembly_PayloadSection",
+   "summary": "Half of the nose shell protecting the satellite.",
+   "what": "A two-piece rounded shell around the satellite.",
+   "why": "The satellite is delicate. In the thick air near the ground it would be damaged by pressure, heating and noise. The fairing shields it.",
+   "how": "The ogive shape cuts through air. Once the rocket is above most of the atmosphere, the halves split and fall away so the rocket carries less mass.",
+   "facts": [
+    "Fairing separation sheds mass the same way stage separation does."
+   ],
+   "interfaces": [
+    {
+     "type": "Mechanical",
+     "text": "Hinged and latched to the avionics bay ring."
+    }
+   ],
+   "connects": [
+    "PL_SatelliteBus",
+    "AV_BayStructure"
+   ],
+   "quiz": {
+    "question": "When does the fairing separate?",
+    "options": [
+     "Above most of the atmosphere",
+     "On the launch pad",
+     "Just before landing"
+    ],
+    "answer": 0,
+    "explanation": "Once outside dense air the satellite no longer needs it."
+   },
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  },
+  {
+   "id": "PL_FairingHalf_B",
+   "name": "Payload fairing, half B",
+   "subsystem": "aerodynamic",
+   "assembly": "Assembly_PayloadSection",
+   "summary": "Half of the nose shell protecting the satellite.",
+   "what": "A two-piece rounded shell around the satellite.",
+   "why": "The satellite is delicate. In the thick air near the ground it would be damaged by pressure, heating and noise. The fairing shields it.",
+   "how": "The ogive shape cuts through air. Once the rocket is above most of the atmosphere, the halves split and fall away so the rocket carries less mass.",
+   "facts": [
+    "Fairing separation sheds mass the same way stage separation does."
+   ],
+   "interfaces": [
+    {
+     "type": "Mechanical",
+     "text": "Hinged and latched to the avionics bay ring."
+    }
+   ],
+   "connects": [
+    "PL_SatelliteBus",
+    "AV_BayStructure"
+   ],
+   "quiz": {
+    "question": "When does the fairing separate?",
+    "options": [
+     "Above most of the atmosphere",
+     "On the launch pad",
+     "Just before landing"
+    ],
+    "answer": 0,
+    "explanation": "Once outside dense air the satellite no longer needs it."
+   },
+   "source": "T",
+   "note": "Representative educational design, not a model of any real rocket."
+  }
+ ],
+ "note": "Representative educational design, not a model of any real rocket."
+}

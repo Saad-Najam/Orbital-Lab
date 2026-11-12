@@ -1,0 +1,842 @@
+[
+ {
+  "id": "S1_Skin",
+  "assembly": "Assembly_Stage1",
+  "center": [
+   0.0,
+   0.0,
+   11.0
+  ],
+  "size": [
+   3.0,
+   3.0,
+   22.0
+  ],
+  "tris": 2160
+ },
+ {
+  "id": "S1_FuelTank",
+  "assembly": "Assembly_Stage1",
+  "center": [
+   0.0,
+   0.0,
+   5.7
+  ],
+  "size": [
+   2.8,
+   2.8,
+   6.6
+  ],
+  "tris": 2327
+ },
+ {
+  "id": "S1_OxidizerTank",
+  "assembly": "Assembly_Stage1",
+  "center": [
+   0.0,
+   0.0,
+   15.5
+  ],
+  "size": [
+   2.8,
+   2.8,
+   11.0
+  ],
+  "tris": 2559
+ },
+ {
+  "id": "S1_Intertank",
+  "assembly": "Assembly_Stage1",
+  "center": [
+   0.0,
+   0.0,
+   9.5
+  ],
+  "size": [
+   2.88,
+   2.88,
+   1.0
+  ],
+  "tris": 384
+ },
+ {
+  "id": "S1_ForwardSkirt",
+  "assembly": "Assembly_Stage1",
+  "center": [
+   0.0,
+   0.0,
+   21.5
+  ],
+  "size": [
+   2.88,
+   2.88,
+   1.0
+  ],
+  "tris": 240
+ },
+ {
+  "id": "S1_ThrustStructure",
+  "assembly": "Assembly_Stage1",
+  "center": [
+   0.0,
+   0.0,
+   2.2
+  ],
+  "size": [
+   2.8,
+   2.8,
+   0.4
+  ],
+  "tris": 968
+ },
+ {
+  "id": "S1_BaseHeatShield",
+  "assembly": "Assembly_Stage1",
+  "center": [
+   0.0,
+   0.0,
+   0.9
+  ],
+  "size": [
+   2.84,
+   2.84,
+   0.06
+  ],
+  "tris": 188
+ },
+ {
+  "id": "S1E_Injector",
+  "assembly": "Assembly_Stage1",
+  "center": [
+   0.0,
+   0.0,
+   2.12
+  ],
+  "size": [
+   0.64,
+   0.64,
+   0.18
+  ],
+  "tris": 484
+ },
+ {
+  "id": "S1E_Chamber",
+  "assembly": "Assembly_Stage1",
+  "center": [
+   0.0,
+   0.0,
+   1.49
+  ],
+  "size": [
+   0.54,
+   0.54,
+   1.08
+  ],
+  "tris": 160
+ },
+ {
+  "id": "S1E_Nozzle",
+  "assembly": "Assembly_Stage1",
+  "center": [
+   0.0,
+   0.0,
+   0.225
+  ],
+  "size": [
+   0.94,
+   0.94,
+   1.45
+  ],
+  "tris": 320
+ },
+ {
+  "id": "S1E_Turbopump",
+  "assembly": "Assembly_Stage1",
+  "center": [
+   0.454,
+   0.0,
+   1.781
+  ],
+  "size": [
+   0.533,
+   0.44,
+   1.438
+  ],
+  "tris": 268
+ },
+ {
+  "id": "S1E_GimbalMount",
+  "assembly": "Assembly_Stage1",
+  "center": [
+   0.16,
+   0.16,
+   2.2
+  ],
+  "size": [
+   1.119,
+   1.119,
+   0.258
+  ],
+  "tris": 296
+ },
+ {
+  "id": "S1_Engine_1",
+  "assembly": "Assembly_Stage1",
+  "center": [
+   0.95,
+   0.0,
+   0.75
+  ],
+  "size": [
+   0.94,
+   0.94,
+   2.5
+  ],
+  "tris": 412
+ },
+ {
+  "id": "S1_Engine_2",
+  "assembly": "Assembly_Stage1",
+  "center": [
+   0.672,
+   0.672,
+   0.75
+  ],
+  "size": [
+   0.94,
+   0.94,
+   2.5
+  ],
+  "tris": 412
+ },
+ {
+  "id": "S1_Engine_3",
+  "assembly": "Assembly_Stage1",
+  "center": [
+   0.0,
+   0.95,
+   0.75
+  ],
+  "size": [
+   0.94,
+   0.94,
+   2.5
+  ],
+  "tris": 412
+ },
+ {
+  "id": "S1_Engine_4",
+  "assembly": "Assembly_Stage1",
+  "center": [
+   -0.672,
+   0.672,
+   0.75
+  ],
+  "size": [
+   0.94,
+   0.94,
+   2.5
+  ],
+  "tris": 412
+ },
+ {
+  "id": "S1_Engine_5",
+  "assembly": "Assembly_Stage1",
+  "center": [
+   -0.95,
+   0.0,
+   0.75
+  ],
+  "size": [
+   0.94,
+   0.94,
+   2.5
+  ],
+  "tris": 412
+ },
+ {
+  "id": "S1_Engine_6",
+  "assembly": "Assembly_Stage1",
+  "center": [
+   -0.672,
+   -0.672,
+   0.75
+  ],
+  "size": [
+   0.94,
+   0.94,
+   2.5
+  ],
+  "tris": 412
+ },
+ {
+  "id": "S1_Engine_7",
+  "assembly": "Assembly_Stage1",
+  "center": [
+   0.0,
+   -0.95,
+   0.75
+  ],
+  "size": [
+   0.94,
+   0.94,
+   2.5
+  ],
+  "tris": 412
+ },
+ {
+  "id": "S1_Engine_8",
+  "assembly": "Assembly_Stage1",
+  "center": [
+   0.672,
+   -0.672,
+   0.75
+  ],
+  "size": [
+   0.94,
+   0.94,
+   2.5
+  ],
+  "tris": 412
+ },
+ {
+  "id": "S1_OxidizerFeedLine",
+  "assembly": "Assembly_Stage1",
+  "center": [
+   0.777,
+   0.0,
+   6.037
+  ],
+  "size": [
+   0.447,
+   0.2,
+   8.025
+  ],
+  "tris": 84
+ },
+ {
+  "id": "S1_FuelFeedLine",
+  "assembly": "Assembly_Stage1",
+  "center": [
+   -0.406,
+   -0.458,
+   2.473
+  ],
+  "size": [
+   0.329,
+   0.424,
+   0.854
+  ],
+  "tris": 56
+ },
+ {
+  "id": "S1_PressurantBottles",
+  "assembly": "Assembly_Stage1",
+  "center": [
+   -0.8,
+   0.2,
+   1.6
+  ],
+  "size": [
+   0.56,
+   1.16,
+   0.56
+  ],
+  "tris": 448
+ },
+ {
+  "id": "S1_GridFins",
+  "assembly": "Assembly_Stage1",
+  "center": [
+   0.0,
+   0.0,
+   21.2
+  ],
+  "size": [
+   2.977,
+   2.977,
+   0.86
+  ],
+  "tris": 576
+ },
+ {
+  "id": "S1_LandingLegs",
+  "assembly": "Assembly_Stage1",
+  "center": [
+   0.0,
+   0.0,
+   2.149
+  ],
+  "size": [
+   6.84,
+   6.84,
+   4.748
+  ],
+  "tris": 496
+ },
+ {
+  "id": "IS_InterstageShell",
+  "assembly": "Assembly_Interstage",
+  "center": [
+   0.0,
+   0.0,
+   23.5
+  ],
+  "size": [
+   3.0,
+   3.0,
+   3.0
+  ],
+  "tris": 240
+ },
+ {
+  "id": "SEP_Ring_Pushers",
+  "assembly": "Assembly_Interstage",
+  "center": [
+   0.0,
+   0.0,
+   22.138
+  ],
+  "size": [
+   2.9,
+   2.9,
+   0.375
+  ],
+  "tris": 592
+ },
+ {
+  "id": "S2_Skin",
+  "assembly": "Assembly_Stage2",
+  "center": [
+   0.0,
+   0.0,
+   31.0
+  ],
+  "size": [
+   3.0,
+   3.0,
+   12.0
+  ],
+  "tris": 1200
+ },
+ {
+  "id": "S2_FuelTank",
+  "assembly": "Assembly_Stage2",
+  "center": [
+   0.0,
+   0.0,
+   28.6
+  ],
+  "size": [
+   2.8,
+   2.8,
+   4.0
+  ],
+  "tris": 1839
+ },
+ {
+  "id": "S2_OxidizerTank",
+  "assembly": "Assembly_Stage2",
+  "center": [
+   0.0,
+   0.0,
+   33.7
+  ],
+  "size": [
+   2.8,
+   2.8,
+   5.0
+  ],
+  "tris": 1839
+ },
+ {
+  "id": "S2_Intertank",
+  "assembly": "Assembly_Stage2",
+  "center": [
+   0.0,
+   0.0,
+   30.9
+  ],
+  "size": [
+   2.88,
+   2.88,
+   0.6
+  ],
+  "tris": 240
+ },
+ {
+  "id": "S2_ForwardSkirt",
+  "assembly": "Assembly_Stage2",
+  "center": [
+   0.0,
+   0.0,
+   36.6
+  ],
+  "size": [
+   2.88,
+   2.88,
+   0.8
+  ],
+  "tris": 240
+ },
+ {
+  "id": "S2_ThrustStructure",
+  "assembly": "Assembly_Stage2",
+  "center": [
+   0.0,
+   0.0,
+   26.417
+  ],
+  "size": [
+   2.7,
+   2.7,
+   0.315
+  ],
+  "tris": 228
+ },
+ {
+  "id": "S2E_Injector",
+  "assembly": "Assembly_Stage2",
+  "center": [
+   0.0,
+   0.0,
+   26.215
+  ],
+  "size": [
+   0.56,
+   0.56,
+   0.15
+  ],
+  "tris": 412
+ },
+ {
+  "id": "S2E_Chamber",
+  "assembly": "Assembly_Stage2",
+  "center": [
+   0.0,
+   0.0,
+   25.67
+  ],
+  "size": [
+   0.48,
+   0.48,
+   0.94
+  ],
+  "tris": 160
+ },
+ {
+  "id": "S2E_NozzleExtension",
+  "assembly": "Assembly_Stage2",
+  "center": [
+   0.0,
+   0.0,
+   24.15
+  ],
+  "size": [
+   2.44,
+   2.44,
+   2.1
+  ],
+  "tris": 672
+ },
+ {
+  "id": "S2E_Turbopump",
+  "assembly": "Assembly_Stage2",
+  "center": [
+   -0.45,
+   0.0,
+   25.806
+  ],
+  "size": [
+   0.38,
+   0.38,
+   0.839
+  ],
+  "tris": 180
+ },
+ {
+  "id": "S2E_GimbalActuators",
+  "assembly": "Assembly_Stage2",
+  "center": [
+   0.45,
+   0.45,
+   26.305
+  ],
+  "size": [
+   1.04,
+   1.04,
+   0.43
+  ],
+  "tris": 952
+ },
+ {
+  "id": "S2_OxidizerFeedLine",
+  "assembly": "Assembly_Stage2",
+  "center": [
+   0.478,
+   0.304,
+   28.755
+  ],
+  "size": [
+   0.384,
+   0.531,
+   4.989
+  ],
+  "tris": 84
+ },
+ {
+  "id": "S2_PressurantBottles",
+  "assembly": "Assembly_Stage2",
+  "center": [
+   0.9,
+   0.0,
+   36.55
+  ],
+  "size": [
+   0.6,
+   1.6,
+   0.6
+  ],
+  "tris": 448
+ },
+ {
+  "id": "AV_BayStructure",
+  "assembly": "Assembly_AvionicsBay",
+  "center": [
+   0.0,
+   0.0,
+   37.6
+  ],
+  "size": [
+   3.0,
+   3.0,
+   1.2
+  ],
+  "tris": 428
+ },
+ {
+  "id": "AV_FlightComputer",
+  "assembly": "Assembly_AvionicsBay",
+  "center": [
+   0.55,
+   0.35,
+   37.336
+  ],
+  "size": [
+   0.55,
+   0.38,
+   0.193
+  ],
+  "tris": 96
+ },
+ {
+  "id": "AV_IMU",
+  "assembly": "Assembly_AvionicsBay",
+  "center": [
+   0.0,
+   0.0,
+   37.316
+  ],
+  "size": [
+   0.22,
+   0.22,
+   0.173
+  ],
+  "tris": 96
+ },
+ {
+  "id": "AV_DataAcquisition",
+  "assembly": "Assembly_AvionicsBay",
+  "center": [
+   -0.1,
+   0.65,
+   37.316
+  ],
+  "size": [
+   0.4,
+   0.28,
+   0.153
+  ],
+  "tris": 96
+ },
+ {
+  "id": "AV_BatteryPack",
+  "assembly": "Assembly_AvionicsBay",
+  "center": [
+   -0.65,
+   0.45,
+   37.342
+  ],
+  "size": [
+   0.55,
+   0.32,
+   0.245
+  ],
+  "tris": 60
+ },
+ {
+  "id": "AV_PowerDistributionUnit",
+  "assembly": "Assembly_AvionicsBay",
+  "center": [
+   -0.55,
+   -0.55,
+   37.316
+  ],
+  "size": [
+   0.42,
+   0.3,
+   0.173
+  ],
+  "tris": 96
+ },
+ {
+  "id": "AV_TelemetryTransmitter",
+  "assembly": "Assembly_AvionicsBay",
+  "center": [
+   0.55,
+   -0.5,
+   37.296
+  ],
+  "size": [
+   0.36,
+   0.26,
+   0.153
+  ],
+  "tris": 96
+ },
+ {
+  "id": "AV_TelemetryAntenna",
+  "assembly": "Assembly_AvionicsBay",
+  "center": [
+   1.103,
+   0.708,
+   37.798
+  ],
+  "size": [
+   0.47,
+   0.478,
+   0.605
+  ],
+  "tris": 180
+ },
+ {
+  "id": "AV_GPSReceiverAntenna",
+  "assembly": "Assembly_AvionicsBay",
+  "center": [
+   -1.113,
+   1.02,
+   37.6
+  ],
+  "size": [
+   0.24,
+   0.24,
+   0.04
+  ],
+  "tris": 92
+ },
+ {
+  "id": "AV_WiringHarness",
+  "assembly": "Assembly_AvionicsBay",
+  "center": [
+   0.974,
+   0.544,
+   19.859
+  ],
+  "size": [
+   1.202,
+   0.759,
+   34.952
+  ],
+  "tris": 224
+ },
+ {
+  "id": "PL_PayloadAdapter",
+  "assembly": "Assembly_PayloadSection",
+  "center": [
+   0.0,
+   0.0,
+   38.55
+  ],
+  "size": [
+   1.9,
+   1.9,
+   0.7
+  ],
+  "tris": 560
+ },
+ {
+  "id": "PL_SatelliteBus",
+  "assembly": "Assembly_PayloadSection",
+  "center": [
+   0.0,
+   0.0,
+   40.04
+  ],
+  "size": [
+   1.15,
+   1.15,
+   2.28
+  ],
+  "tris": 36
+ },
+ {
+  "id": "PL_SolarArrays",
+  "assembly": "Assembly_PayloadSection",
+  "center": [
+   0.0,
+   0.0,
+   40.0
+  ],
+  "size": [
+   1.305,
+   0.95,
+   1.9
+  ],
+  "tris": 72
+ },
+ {
+  "id": "PL_Antenna",
+  "assembly": "Assembly_PayloadSection",
+  "center": [
+   0.0,
+   0.0,
+   41.35
+  ],
+  "size": [
+   0.72,
+   0.72,
+   0.4
+  ],
+  "tris": 155
+ },
+ {
+  "id": "PL_FairingHalf_A",
+  "assembly": "Assembly_PayloadSection",
+  "center": [
+   0.75,
+   0.0,
+   42.5
+  ],
+  "size": [
+   1.5,
+   3.0,
+   11.0
+  ],
+  "tris": 2448
+ },
+ {
+  "id": "PL_FairingHalf_B",
+  "assembly": "Assembly_PayloadSection",
+  "center": [
+   -0.75,
+   0.0,
+   42.5
+  ],
+  "size": [
+   1.5,
+   3.0,
+   11.0
+  ],
+  "tris": 2448
+ }
+]

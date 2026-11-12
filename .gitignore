@@ -45,3 +45,25 @@ dist/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Unity generated
+OrbitalLabProject/Library/
+OrbitalLabProject/Temp/
+OrbitalLabProject/Obj/
+OrbitalLabProject/Build/
+OrbitalLabProject/Builds/
+OrbitalLabProject/UserSettings/
+OrbitalLabProject/Review/
+OrbitalLabProject/*.csproj
+OrbitalLabProject/*.sln
+OrbitalLabProject/.vs/
+# .NET test project output
+SimTests/bin/
+SimTests/obj/
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+# Compile-check helper build output (contains copies of Unity DLLs)
+Tools/UnityCompileCheck/bin/
+Tools/UnityCompileCheck/obj/
