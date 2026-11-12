@@ -10,6 +10,7 @@
 [Bb]uilds/
 Logs/
 UserSettings/
+MemoryCaptures/
 *.pidb.meta
 *.pdb.meta
 *.mdb.meta
@@ -17,10 +18,14 @@ UserSettings/
 ExportedObj/
 *.unitypackage
 *.tmp
-Packages/
 *.csproj
 *.sln
 *.suo
+*.user
+*.userprefs
+
+# Unity Packages (Track manifest.json and packages-lock.json, ignore local caches)
+# Packages/manifest.json and Packages/packages-lock.json MUST be committed!
 
 # Python
 __pycache__/
